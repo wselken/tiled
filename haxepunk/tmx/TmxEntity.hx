@@ -4,7 +4,7 @@ import haxepunk.Entity;
 import haxepunk.Graphic;
 import haxepunk.graphics.Graphiclist;
 import haxepunk.graphics.Image;
-import haxepunk.graphics.Tilemap;
+import haxepunk.graphics.tile.Tilemap;
 import haxepunk.masks.Grid;
 import haxepunk.masks.SlopedGrid;
 import haxepunk.masks.Masklist;
@@ -24,7 +24,18 @@ private abstract Map(TmxMap)
 	@:from public static inline function fromMapData(mapData:MapData)
 		return new Map(new TmxMap(mapData));
 }
-
+enum TmxTileType
+{
+	Empty;
+	Solid;
+	AboveSlope;
+	BelowSlope;
+	// quick types
+	TopLeft;
+	TopRight;
+	BottomLeft;
+	BottomRight;
+}
 class TmxEntity extends Entity
 {
 
